@@ -11,7 +11,7 @@ conn = st.experimental_connection("gsheets", type=GSheetsConnection)
 worksheet = "Hoja 1"
 
 # Mostrar el DataFrame actualizado en la aplicación
-st.dataframe(conn.read(worksheet=worksheet, ttl=10))
+st.dataframe(conn.read(worksheet=worksheet, usecols=list(range(8)), ttl=10))
 
 
 # Agregar un campo de búsqueda en la barra lateral
