@@ -1,6 +1,8 @@
 import streamlit as st
 from streamlit_gsheets import GSheetsConnection
 import pandas as pd
+import webbrowser
+
 
 st.set_page_config(layout="wide")
 
@@ -61,8 +63,12 @@ with st.sidebar.form("Datos de Cuenta Bancaria"):
         conn.update(worksheet=worksheet, data=updated_df)
 
         # Mostrar mensaje de éxito
-        st.sidebar.success("Los datos se han guardado correctamente en la hoja de cálculo.")
+        st.sidebar.success("Los datos se han guardado correctamente en base de datos.")
 
     # Botón para recargar la página y ver los cambios
 if st.sidebar.button("Recargar la página para ver los cambios"):
     st.experimental_rerun()
+
+url = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vTNUlTS_j358VaFHX0wpKEO536ksmEbkCjwlXc6JVUFYBH-gJdgadxe8SfyHG0wMwRiE5YaNoG7tQgB/pub?output=xlsx'
+if st.button('Descargar Excel'):
+    webbrowser.open_new_tab(url)
