@@ -17,7 +17,7 @@ st.dataframe(conn.read(worksheet=worksheet, usecols=list(range(8)), ttl=10))
 
 
 # Agregar un campo de búsqueda en la barra lateral
-st.sidebar.header("Buscar en la Hoja de Cálculo")
+st.sidebar.header("Buscar en la Base de Datos")
 search_query = st.sidebar.text_input("Buscar (RUT o TITULAR)").lower()
 
 # Filtrar el DataFrame basado en la consulta de búsqueda
@@ -69,6 +69,6 @@ with st.sidebar.form("Datos de Cuenta Bancaria"):
 if st.sidebar.button("Recargar la página para ver los cambios"):
     st.experimental_rerun()
 
-url = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vTNUlTS_j358VaFHX0wpKEO536ksmEbkCjwlXc6JVUFYBH-gJdgadxe8SfyHG0wMwRiE5YaNoG7tQgB/pub?output=xlsx'
-if st.button('Descargar Excel'):
+if st.button("Abrir la hoja de cálculo en Google Sheets"):
+    url = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vTNUlTS_j358VaFHX0wpKEO536ksmEbkCjwlXc6JVUFYBH-gJdgadxe8SfyHG0wMwRiE5YaNoG7tQgB/pub?output=xlsx'
     webbrowser.open_new_tab(url)
