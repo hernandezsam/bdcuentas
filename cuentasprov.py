@@ -1,7 +1,7 @@
 import streamlit as st
 from streamlit_gsheets import GSheetsConnection
 import pandas as pd
-import webbrowser
+
 
 
 st.set_page_config(layout="wide")
@@ -69,6 +69,4 @@ with st.sidebar.form("Datos de Cuenta Bancaria"):
 if st.sidebar.button("Recargar la página para ver los cambios"):
     st.experimental_rerun()
 
-if st.button("Abrir la hoja de cálculo en Google Sheets"):
-    url = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vTNUlTS_j358VaFHX0wpKEO536ksmEbkCjwlXc6JVUFYBH-gJdgadxe8SfyHG0wMwRiE5YaNoG7tQgB/pub?output=xlsx'
-    webbrowser.open_new_tab(url)
+st.markdown("[Descargar Excel](https://docs.google.com/spreadsheets/d/e/2PACX-1vTNUlTS_j358VaFHX0wpKEO536ksmEbkCjwlXc6JVUFYBH-gJdgadxe8SfyHG0wMwRiE5YaNoG7tQgB/pub?output=xlsx)")
